@@ -1,0 +1,17 @@
+{
+    "name": "PicACG",
+    "short_name": "PicACG",
+    "icons": [
+        {
+            "src": "/build/imgs/android-icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#fff",
+    "background_color": "#fff",
+    "display": "standalone",
+    "orientation": "portrait-primary",
+    "start_url": "/"
+}
+

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="referrer" content="never">
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        .loader {
+            background-color: transparent !important;
+        }
+
+        .loader img {
+            opacity: 1;
+        }
+    </style>
+    <script>
+        const pwaAssets = "https://manhuabika.com/wp-content/themes/pic-pwa/";
+
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <script src="https://manhuabika.com/wp-content/themes/pic-pwa/assets/js/jquery.js?ver=2.1a"></script>
+    <link rel="stylesheet"
+        href="https://manhuabika.com/wp-content/themes/pic-pwa/assets/css/inc/splide/splide.min.css?ver=2.21">
+    <script
+        src="https://manhuabika.com/wp-content/themes/pic-pwa/assets/js/plugins/splide/splide.min.js?ver=2.21"></script>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#000000">
+    <title></title>
+    <link rel="stylesheet"
+        href="https://manhuabika.com/wp-content/themes/pic-pwa/assets/css/style.min.css?ver=2.12f1">
+    <script
+        src="https://manhuabika.com/wp-content/themes/pic-pwa/assets/js/lib/bootstrap.js?ver=5.2.1233"></script>
+    <link rel="stylesheet"
+        href="https://manhuabika.com/wp-content/themes/pic-pwa-pic/comic/assets/css/picstyle.min.css?ver=2.1a">
+    <meta name="description" content="">
+    <meta name="keywords" content="" />
+    <link rel="icon" type="image/png"
+        href="https://manhuabika.com/wp-content/themes/pic-pwa/assets/img/favicon.png" sizes="32x32">
+    <link rel="apple-touch-icon" sizes="72x72"
+        href="https://manhuabika.com/wp-content/themes/pic-pwa/assets/img/icon/72x72.png?ver=2.1a">
+    <script
+        src="https://manhuabika.com/wp-content/themes/pic-pwa/assets/js/ueserheader.min.js?ver=2.1affffAff"></script>
+    <script
+        src="https://manhuabika.com/wp-content/themes/pic-pwa-pic/comic/assets/js/putils.js?ver=2.f"></script>
+    <link rel="manifest" href="https://manhuabika.com/wp-content/themes/pic-pwa/__manifest.json?ver=2.1asq">
+</head>
+
+<body class="bg-white modeset mx-auto" data-instant-allow-query-string data-instant-intensity="mousedown"
+    data-instant-intensity="viewport" style="">
+
+    <div id="loader" class="loader" onclick="setloaderMode()">
+        <div class="row d-flex justify-content-center">
+            <div class="col-12  w-50 text-center">
+                <div class="w-100 text-center">
+                    <img src="https://manhuabika.com/wp-content/themes/pic-pwa-pic/comic/assets/res/img/loading.gif?ver=2.0"
+                        class="image w-100" alt="product image">
+                    <h2 class="text-center text-primary">
+                        <div class="spinner-border text-primary" role="status"></div>
+                        <p class="my-pic-loading w-100" style="font-size: 14px;">
+                            數據加載中...
+                        </p>
+                    </h2>
+                    <a href="#" class="btn btn-sm btn-primary btn-block" onclick="setloaderMode()">跳過加載</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="appHeader bg-primary text-light">
+        <div class="left">
+            <a href="#" class="headerButton  iconedbox " data-bs-toggle="offcanvas" data-bs-target="#sidebarPanel">
+                <i class="demo-icon icon-list"></i>
+            </a>
+        </div>
+        <div class="pageTitle"><a class="text-white" href="/"> 嗶咔漫畫</a></div>
+        <div class="right">
+            <a href="#" class="headerButton toggle-searchbox">
+                <i class="demo-icon icon-search"></i>
+            </a>
+            </a>
+        </div>
+    </div>
+
+    <div id="search" class="appHeader showsearchbox">
+        <form action="/pcomiclist/" class="search-form">
+            <div class="form-group searchbox">
+                <input type="text" name="keys" class="form-control" placeholder="搜索關鍵詞不要太長,標題可以部分搜索">
+                <i class="input-icon">
+                    <i class="icon-search"></i>
+                </i>
+                <a href="#" class="ms-1 close toggle-searchbox">
+                    <i class="icon-cancel"></i>
+                </a>
+            </div>
+        </form>
+    </div>
+
+    <div id="appCapsule">
+        <div class="blog-post">
+            <div class="login-form mt-1">
+                <div class="section">
+                    <img src="https://manhuabika.com/wp-content/themes/pic-pwa-pic/comic/assets/res/img/login-bg.png?ver=2.1a"
+                        alt="image" class="form-image">
+                </div>
+                <div class="section mt-1 mb-5">
+                    <div class="row">
+                        <div class="col-12 my-os-alert" style="display: none">
+                            <div class="alert alert-outline-success mb-1" role="alert">
+                                測試期間，僅IOS系統可用，其他設備請下載客戶端。
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <a download="picacg.apk"
+                                href="https://manhuabika.com/wp-content/themes/pic-pwa/config/file/2.2.1.3.3.4_collections.apk?ver=2.1a">
+                                <button class="btn btn-primary w-75"><i class="icon-android"></i>Android 下載</button>
+                            </a>
+                        </div>
+                        <div class="col-12 mt-1">
+                            <button class="btn btn-primary  w-75" data-bs-toggle="collapse" data-bs-target="#accordion1"
+                                aria-expanded="false"><i class="icon-apple"></i> IOS 下載
+                            </button>
+                            <div id="accordion1" class="accordion-collapse collapse" data-bs-parent="#accordionExample1"
+                                style="">
+                                <div class="accordion-body">
+                                    <div class="row">
+                                        <div class="col-12">1.無需安裝，打開即用</div>
+                                        <div class="col-12">
+                                            <a href="https://manhuabika.com">
+                                                <button class="btn btn-primary w-50">🌐 IOS 輕量版</button>
+                                            </a>
+                                        </div>
+                                        <div class="col-12">2.經常失效，但是無需簽名</div>
+                                        <div class="col-12">
+                                            <a href="https://picawiki.xyz/201/">
+                                                <button class="btn btn-primary w-50">🏬 IOS 企業版</button>
+                                            </a>
+                                        </div>
+                                        <div class="col-12">3.自行簽名，需要PC</div>
+                                        <div class="col-12">
+                                            <button class="btn btn-primary w-50" data-bs-toggle="collapse"
+                                                data-bs-target="#ipaDownload" aria-expanded="false"><i
+                                                    class="icon-apple"></i> IPA下載
+                                            </button>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <div id="ipaDownload" class="accordion-collapse collapse"
+                                                data-bs-parent="#accordionExample1" style="">
+                                                <div class="accordion-body">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            Sideloadly自簽教程
+                                                            <a class="text-primary"
+                                                                href="http://picawiki.xyz/164/">點擊查看</a>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            Altstore自簽教程
+                                                            <a class="text-primary"
+                                                                href="https://picawiki.xyz/168/">點擊查看</a>
+                                                        </div>
+                                                        <div class="col-12">系統版本：14 - 15+</div>
+                                                        <div class="col-12">
+                                                            <a download="ios.ipa"
+                                                                href="https://manhuabika.com/wp-content/themes/pic-pwa/config/file/ios15.ipa?ver=2.1a">
+                                                                <button class="btn btn-primary w-50">下載穩定版本</button>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-12">系統版本： 16~</div>
+                                                        <div class="col-12">
+                                                            <a download="ios.ipa"
+                                                                href="https://manhuabika.com/wp-content/themes/pic-pwa/config/file/ios16.ipa?ver=2.1a">
+                                                                <button class="btn btn-primary w-50">下載最新編譯版</button>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-12">系統版本：13-14</div>
+                                                        <div class="col-12">裝好先登錄，再打開選綫路火神</div>
+                                                        <div class="col-12">
+                                                            <a download="ios.ipa"
+                                                                href="https://manhuabika.com/wp-content/themes/pic-pwa/config/file/ios13.ipa?ver=2.1a">
+                                                                <button class="btn btn-primary w-50">下載舊版</button>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-1">
+                            <button class="btn btn-primary  w-75" data-bs-toggle="collapse"
+                                data-bs-target="#winDownload" aria-expanded="false"><i class="icon-windows"></i> Pc 下載
+                            </button>
+                            <div class="accordion-item">
+                                <div id="winDownload" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionExample1" style="">
+                                    <div class="accordion-body">
+                                        <div class="row">
+                                            <div class="col-12">您可以用web版本</div>
+                                            <a href="https://manhuabika.com">
+                                                <button class="btn btn-primary  w-50" data-bs-toggle="collapse"
+                                                    data-bs-target="#winDownload" aria-expanded="false">🌐 Web 版本
+                                                </button>
+                                            </a>
+                                            <div class="col-12">或者下載APK文件，用模擬器</div>
+                                            <a download="picacg.apk"
+                                                href="https://manhuabika.com/wp-content/themes/pic-pwa/config/file/2.2.1.3.3.4_collections.apk?ver=2.1a">
+                                                <button class="btn btn-primary  w-50" data-bs-toggle="collapse"
+                                                    data-bs-target="#winDownload" aria-expanded="false"><i
+                                                        class="icon-apple"></i>APK下載
+                                                </button>
+                                            </a>
+                                            <div class="col-12">然後用用模擬器安裝APK，
+                                                您可以下載我們推薦的模擬器安裝使用。
+                                            </div>
+                                            <div class="col-12">
+                                                <a href="https://www.bluestacks.com/tw/index.html">
+                                                    <button class=" mt-1 btn btn-primary w-50">bluestacks</button>
+                                                </a>
+                                                <a href="https://www.yeshen.com/">
+                                                    <button class="mt-1 btn btn-primary w-50">簡中：夜神模擬器</button>
+                                                </a>
+                                                <a href="https://mumu.163.com/">
+                                                    <button class="mt-1 btn btn-primary w-50">簡中：MUMU模擬器</button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-1">
+                            <button class="btn btn-primary  w-75" data-bs-toggle="collapse" data-bs-target="#likeBanner"
+                                aria-expanded="false"><i class="icon-heart"></i> 關注我們 <i class="icon-heart"></i>
+                            </button>
+                            <div class="accordion-item">
+                                <div id="likeBanner" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionExample1" style="">
+                                    <div class="accordion-body text-start">
+                                        <p class="text-center">感謝您支持嗶咔娘</p>
+                                        <p>首先，我向您明確，大陸沒有任何官方人員。</p>
+                                        <p>我們是免費的，任何收費，推廣等等都是假的，如果您已經被騙，請加入群組聯係管理👉
+                                            <a class="badge badge-primary"
+                                                href="https://t.me/+2ap1xXkBKpY5NmE9">維權群組</a>
+                                        </p>
+                                        </p>
+                                        <p>大陸任何平臺（公衆號、抖音、快手）的嗶咔都是假的，請幫助我們舉報！</p>
+                                        <p>您可以在telegram關注我們的最新動態👉
+                                            <a class="badge badge-primary" href="https://t.me/s/PicAcg">PIC公告板</a>
+                                        </p>
+                                        <p></p>
+                                        <p>我們還有其他有趣的群組，歡迎你的加入👇
+                                        </p>
+                                        <p class="text-start">嗶咔 大衆澡堂
+                                            <a class="badge badge-primary" href="https://t.me/PicDZZT">點擊加入</a>
+                                        </p>
+                                        <p class="text-start">嗶咔 iOS 動物園
+                                            <a class="badge badge-primary"
+                                                href="https://t.me/joinchat/ZRs991q7PBRiNWE1">點擊加入</a>
+                                        </p>
+                                        <p class="text-start">嗶咔 淑女群（限制女生）
+                                            <a class="badge badge-primary"
+                                                href="https://t.me/joinchat/T4KRmQcC9RfH8WW6">點擊加入</a>
+                                        </p>
+                                        <p>DCMA\商務 官方郵箱：<a class="text-primary"
+                                                href="/cdn-cgi/l/email-protection#b8c8d1dbd9c8d1dbd9dbd7d5d1dbf8dfd5d9d1d496dbd7d5"><span
+                                                    class="__cf_email__"
+                                                    data-cfemail="f989909a9889909a989a9694909ab99e94989095d79a9694">[email&#160;protected]</span></a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-1">
+                            <p>我們是免費的，大陸沒有任何賬戶和人員，任何大陸官方，收費，推廣等等都是假的，如果您已經被騙，請加入群組聯係管理👉
+                                <a class="badge badge-primary" href="https://t.me/+2ap1xXkBKpY5NmE9">維權群組</a>
+                            </p>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade bd-example-modal-sm modal-download" id="modal-download" tabindex="-1" role="dialog"
+        aria-labelledby="modal-downloadTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 style="font-size:100%;" class="modal-title text-white" id="exampleModalLongTitle">錯誤提示</h5>
+                    <button class="btn" type="button" onclick="hideModal('modal-download')" class="close"
+                        data-dismiss="modal" aria-label="Close">
+                        <i class="icon-cancel"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="section text-white text-center">
+                        <img src=https://manhuabika.com/wp-content/themes/pic-pwa-pic/comic/assets/res/img/tip-error.png?ver=2.1a
+                            alt='image' class='w-100 img-responsive text-center modalImg'>
+                        <div class='modalContentSet'></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="hideModal('modal-download')" data-dismiss="modal"
+                        class="btn btn-primary modal-downloadConfirmBtn">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script> var modalClassId = "modal-download";</script>
+    </div>
+    <a class="bg-primary button goTop">
+        <i class="icon-up"></i>
+    </a>
+
+
+    <div class="appBottomMenu">
+        <a href="/phome/" class="item  time-link">
+            <div class="d-flex align-content-start flex-wrap bd-highlight mb-2">
+                <div class="w-100 pt-2 my-buttom-icon">
+                    <i class="icon-home-outline"></i>
+                </div>
+                <div class="pt-1 w-100 my-buttom-text">主頁</div>
+            </div>
+        </a>
+        <a href="/pcat/" class="item  time-link">
+            <div class="d-flex align-content-start flex-wrap bd-highlight mb-2">
+                <div class="w-100 pt-2 my-buttom-icon">
+                    <i class="icon-book"></i>
+                </div>
+                <div class="pt-1 w-100 my-buttom-text">分类</div>
+            </div>
+        </a>
+        <a href="/pgame/" class="item  time-link">
+            <div class="d-flex align-content-start flex-wrap bd-highlight mb-2">
+                <div class="w-100 pt-2 my-buttom-icon">
+                    <i class="icon-gamepad"></i>
+                </div>
+                <div class="pt-1 w-100 my-buttom-text">游戲</div>
+            </div>
+        </a>
+        <a href="/puser/" class="item  time-link">
+            <div class="d-flex align-content-start flex-wrap bd-highlight mb-2">
+                <div class="w-100 pt-2 my-buttom-icon">
+                    <i class="icon-user"></i>
+                </div>
+                <div class="pt-1 w-100 my-buttom-text">個人中心</div>
+            </div>
+        </a>
+        <a href="/" class="item" data-bs-toggle="offcanvas" data-bs-target="#sidebarPanel">
+            <div class="d-flex  align-content-start flex-wrap bd-highlight mb-2">
+                <div class="w-100 pt-2 my-buttom-icon">
+                    <i class="icon-list"></i>
+                </div>
+                <div class="pt-1 w-100 my-buttom-text">功能</div>
+            </div>
+        </a>
+    </div>
+
+
+    <div class="offcanvas offcanvas-start sysoffcanvas  " tabindex="-1" id="sidebarPanel">
+        <div class="offcanvas-body">
+
+            <div class="profileBox w-100">
+                <div style="" class="image-wrapper">
+                    <img src="https://manhuabika.com/wp-content/themes/pic-pwa/assets/img/logo.png"
+                        alt="image" class="imaged rounded">
+                </div>
+                <div class="in">
+                    <strong>嗶咔漫畫</strong>
+                    <div class="text-muted">
+                        官網-APP下載-網頁版 </div>
+                </div>
+                <a href="#" class="close-sidebar-button" data-bs-dismiss="offcanvas">
+                    <i class="icon-cancel"></i>
+                </a>
+            </div>
+
+            <ul class="listview flush transparent no-line image-listview mt-2">
+                <li>
+                    <a href="/" class="item">
+                        <div class="icon-box bg-primary">
+                            <i class="icon-home-outline"></i>
+                        </div>
+                        <div class="in text-primary">
+                            回到首頁
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <div class="item">
+                        <div class="icon-box bg-primary">
+                            <i class="icon-adjust"></i>
+                        </div>
+                        <div class="in">
+                            <div class="text-primary">夜間模式</div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input dark-mode-switch" type="checkbox" id="darkmodesidebar">
+                                <label class="form-check-label" for="darkmodesidebar"></label>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="listview-title mt-2 mb-1">
+                <span>功能</span>
+            </div>
+            <ul class="listview image-listview flush transparent no-line">
+                <li>
+                    <div class="item">
+                        <div class="icon-box bg-primary">
+                            <a href="/puser/">
+                                <i class="icon-user text-white"></i></a>
+                        </div>
+                        <div class="in">
+                            <a class="text-primary" href="/puser/">
+                                <div>個人中心</div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar-buttons w-100">
+            <a href="" class="button myquestion">
+                <i class="icon-question"></i>
+            </a>
+            <a onclick="iosAddtoHome()" class="button">
+                <i class="icon-drive"></i>
+            </a>
+            <a href="/setting/" class="button">
+                <i class="icon-cog"></i>
+            </a>
+            <a onclick="loginOut(true)" class="button">
+                <i class="icon-logout"></i>
+            </a>
+        </div>
+    </div>
+
+
+    </div>
+    <div id="reftip" class="notification-box">
+        <div class="notification-dialog ios-style bg-primary">
+            <div class="notification-header">
+                <div class="in">
+                    <strong></strong>
+                </div>
+                <div class="right">
+                    <span>現在</span>
+                    <a href="#" class="close-button">
+                        <i class="icon-cancel-circled2"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="notification-content">
+                <div class="in">
+                    <h3 class="subtitle">域名自動切換提醒</h3>
+                    <div class="text">
+                        <p>當前最新域名：<span class='js-set-host'></span></p>
+                        <p>請及時截圖、書簽，或者從歷史記錄進入。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="toast-user" class="toast-box toast-top bg-primary">
+        <div class="in">
+            <div class="text toast-set-text text-white">
+            </div>
+        </div>
+        <button type="button" class="btn btn-sm  close-button toast-set-button text-white">OK</button>
+    </div>
+    <div class="offcanvas offcanvas-bottom action-sheet inset ios-add-to-home my-bg-white" tabindex="-1"
+        id="ios-add-to-home-screen" aria-modal="true" role="dialog">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">添加到桌面</h5>
+            <a href="#" class="close-button" data-bs-dismiss="offcanvas">
+                <i class="icon-cancel"></i>
+            </a>
+        </div>
+        <div class="offcanvas-body">
+            <div class="action-sheet-content text-center">
+                <div class="mb-1"><img
+                        src="https://manhuabika.com/wp-content/themes/pic-pwa/assets/img/favicon.png?ver=2.1a"
+                        alt="image" class="imaged w48">
+                </div>
+                <h4>嗶咔漫畫</h4>
+                <div>
+                    安裝到您的手機，獲得更好的體驗。
+                </div>
+                <div>
+                    點擊瀏覽器的
+                    <div style="" class="my-icon-box my-rotate-90"><i class="icon-logout"></i></div>
+                    添加到您的主屏幕。
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cookies-box" class="cookies-modal">
+        <div class="row">
+            <div class="col-10">
+                <h5 class="title">Cookies&用戶協議</h5>
+                <span class="text-warning">如果無法關閉請關掉廣告過濾</span>
+            </div>
+            <div class="col-2 text-end"><i class="my-text-black-50 icon-cancel accept-cookies toggle-cookies"></i></div>
+        </div>
+        <div class="mb-2">
+            <p>在本網站，您可能會見到面向成人觀眾的內容。</p>
+            <p>通過使用本網站，您就承認了您已經超過18歲了、您已經閱讀了我們的隱私政策、且同意我們的條款及其細則。</p>
+            <p>我們使用cookies來改善您的用戶體驗。繼續瀏覽網頁，您接受使用cookies，包括第三方cookies</p>
+            <p><a href="#"> 18 U.S.C 2257备案要求遵守声明</a></p>
+            <p>如果拒絕同意我們的用戶協議，或者不符合使用最低年齡要求，請自行離開。</p>
+        </div>
+        <a href="#" class="btn btn-primary btn-block accept-cookies toggle-cookies">
+            <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">我接受</font>
+            </font>
+        </a>
+    </div>
+</body>
+
+<script></script>
+<script src="https://manhuabika.com/wp-content/themes/pic-pwa/assets/js/ueserfoot.min.js?ver=2.1a"></script>
+<script src="/pwa/?ver=2.0"></script>
+<script>
+
+    $(document).ready(function () {
+
+        checkHostJump('reftip');
+        var showCookies = true;
+
+        var ver = iOS_version();
+        if (ver != undefined) {
+
+            if (ver.Major_Release_Numeric < 14) {
+                showCookies = false;
+            }
+        }
+        if (showCookies)
+            CookiesBox(3000);
+    });
+</script>
+<script src="https://manhuabika.com/wp-content/themes/pic-pwa/assets/js/instack.min.js?ver=2.1a"
+    type="module"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CYD4PLDZG2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-CYD4PLDZG2');
+    topLeftUtlis();
+</script>
+
+</html>
+<script>
+    $(document).ready(function () {
+        if (getPar('notos') == 'yes')
+            $(".my-os-alert").show();
+    })
+    fullScreenMode();
+</script>
